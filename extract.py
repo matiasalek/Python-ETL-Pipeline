@@ -4,11 +4,19 @@ import requests
 import airflow
 from pandas.io.json import json_normalize
 
+# Guardo el url de la api, params y headers
+api_url = 'https://api.yelp.com/v3/businesses/search'
+params = {"term": "restaurants",
+          "location": "Buenos Aires"}
+api_key = "bdGAuRF-OkcKcqikk8RYXv6ii5pAyos8DbWwQhjxkQxeaQA0-RLJtRuMkKKc-d55XeUH6nZls6kJs0Q6Ix" \
+          "-4bhpFDpMYugPiVVR7rpX5KswXDZqMHxe602Jxgn7UYnYx "
+headers = {"Authorization": "Bearer {}".format(api_key)}
+
 # Guardo el json que me da una api en una variable url_api
-url_api = requests.get('')
+api_get_info = requests.get(api_url, params=params, headers=headers)
 
 # Con pandas leo ese json, con params y headers adecuados
-response = pd.read_json(url_api)
+response = pd.read_json(api_get_info)
 
 # Con el method json me quedo solo con la data de la api, excluyo la metadata
 data_clean = response.json()
