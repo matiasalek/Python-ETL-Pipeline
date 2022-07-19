@@ -7,7 +7,8 @@ import airflow
 api_url = 'https://api.yelp.com/v3/businesses/search'
 params = {"term": "restaurants",
           "location": "Buenos Aires"}
-api_key = # API Key la mantengo privada
+api_key = "bdGAuRF-OkcKcqikk8RYXv6ii5pAyos8DbWwQhjxkQxeaQA0-RLJtRuMkKKc-d55XeUH6nZls6kJs0Q6Ix" \
+          "-4bhpFDpMYugPiVVR7rpX5KswXDZqMHxe602Jxgn7UYnYx "
 headers = {"Authorization": "Bearer {}".format(api_key)}
 
 # API requests para conectarme al search engine de Yelp en Buenos Aires
